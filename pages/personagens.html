@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re:Zero — Personagens</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<video class="video-bg" autoplay loop muted playsinline src="../imagens/vecteezy_digital-screen-background_1626407.mp4"></video>
+<div class="overlay-bg"></div>
+
+<header>
+  <div class="header-glow"></div>
+  <div class="sparks" id="sparks"></div>
+  <div class="header-inner">
+    <div class="header-top">
+      <img class="header-logo" src="../imagens/titulo.jpg" alt="Re:Zero">
+      <div>
+        <div class="header-title">Re:Zero</div>
+        <div class="header-sub">Starting Life in Another World</div>
+      </div>
+    </div>
+    <nav><ul>
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="personagens.html">Personagens</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="galeria.html">Galeria</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="links.html">Links</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="page">
+
+  <h1 class="section-title">Personagens</h1>
+
+  <!-- Filtro Bootstrap Nav pills -->
+  <ul class="nav nav-pills mb-4" id="filtro-tabs" style="gap:6px;">
+    <li class="nav-item">
+      <button class="nav-link active" style="background:rgba(124,92,191,0.3);border:1px solid var(--roxo);color:var(--roxo-claro);font-size:.8rem;letter-spacing:1px;" data-grupo="todos">Todos</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link btn-ghost" style="font-size:.8rem;letter-spacing:1px;" data-grupo="protagonistas">Protagonistas</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link btn-ghost" style="font-size:.8rem;letter-spacing:1px;" data-grupo="aliados">Aliados</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link btn-ghost" style="font-size:.8rem;letter-spacing:1px;" data-grupo="outros">Outros</button>
+    </li>
+  </ul>
+
+  <div class="grid-4" id="char-grid">
+
+    <div class="char-card fade-up" data-grupo="protagonistas">
+      <div class="char-num">01</div>
+      <img src="../imagens/subaru.gif" alt="Subaru">
+      <div class="char-info"><div class="char-name">Subaru Natsuki</div><div class="char-role">Protagonista</div></div>
+      <div class="char-hover">
+        <h3>Subaru Natsuki</h3>
+        <p><strong>Habilidade:</strong> Retorno pela Morte</p>
+        <p>Jovem japonês que se recusa a desistir, não importa quantas vezes precise morrer.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="protagonistas">
+      <div class="char-num">02</div>
+      <img src="../imagens/emilia.gif" alt="Emilia">
+      <div class="char-info"><div class="char-name">Emília</div><div class="char-role">Candidata ao Trono</div></div>
+      <div class="char-hover">
+        <h3>Emília</h3>
+        <p><strong>Magia:</strong> Gelo</p>
+        <p>Meio-elfa de alma pura com um passado misterioso ligado ao Santuário.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="protagonistas">
+      <div class="char-num">03</div>
+      <img src="../imagens/rem.gif" alt="Rem">
+      <div class="char-info"><div class="char-name">Rem</div><div class="char-role">Oni · Empregada</div></div>
+      <div class="char-hover">
+        <h3>Rem</h3>
+        <p><strong>Raça:</strong> Oni (chifre único)</p>
+        <p>Uma das personagens mais amadas do anime. Sua devoção e força são inesquecíveis.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="protagonistas">
+      <div class="char-num">04</div>
+      <img src="../imagens/ram.gif" alt="Ram">
+      <div class="char-info"><div class="char-name">Ram</div><div class="char-role">Oni · Empregada</div></div>
+      <div class="char-hover">
+        <h3>Ram</h3>
+        <p><strong>Magia:</strong> Vento (Fura)</p>
+        <p>Irmã de Rem. Perdeu seu chifre mas compensa com lealdade absoluta a Roswaal.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="aliados">
+      <div class="char-num">05</div>
+      <img src="../imagens/beatrice.gif" alt="Beatrice">
+      <div class="char-info"><div class="char-name">Beatrice</div><div class="char-role">Grande Espírito</div></div>
+      <div class="char-hover">
+        <h3>Beatrice</h3>
+        <p><strong>Tipo:</strong> Grande Espírito do Yang</p>
+        <p>Vive isolada na biblioteca há séculos, esperando por alguém. Passado profundamente trágico.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="aliados">
+      <div class="char-num">06</div>
+      <img src="../imagens/reinhard.gif" alt="Reinhard">
+      <div class="char-info"><div class="char-name">Reinhard</div><div class="char-role">Cavaleiro Divino</div></div>
+      <div class="char-hover">
+        <h3>Reinhard van Astrea</h3>
+        <p><strong>Título:</strong> Cavaleiro da Espada</p>
+        <p>O guerreiro mais forte do reino. Quase como se o universo o tivesse traído de tanto poder.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="aliados">
+      <div class="char-num">07</div>
+      <img src="../imagens/julius.gif" alt="Julius">
+      <div class="char-info"><div class="char-name">Julius</div><div class="char-role">Cavaleiro Real</div></div>
+      <div class="char-hover">
+        <h3>Julius Juukulius</h3>
+        <p><strong>Magia:</strong> Seis Elementos</p>
+        <p>Rival inicial de Subaru com uma relação que evolui de forma surpreendente.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="aliados">
+      <div class="char-num">08</div>
+      <img src="../imagens/cruach.gif" alt="Crusch">
+      <div class="char-info"><div class="char-name">Crusch</div><div class="char-role">Candidata ao Trono</div></div>
+      <div class="char-hover">
+        <h3>Crusch Karsten</h3>
+        <p><strong>Habilidade:</strong> Visão da Medusa</p>
+        <p>Líder nata, estrategista e guerreira. Com um arco que ninguém esperava.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="outros">
+      <div class="char-num">09</div>
+      <img src="../imagens/felix.gif" alt="Felix">
+      <div class="char-info"><div class="char-name">Felix (Ferris)</div><div class="char-role">Curandeiro</div></div>
+      <div class="char-hover">
+        <h3>Felix Argyle</h3>
+        <p><strong>Magia:</strong> Água (cura)</p>
+        <p>Um dos melhores curandeiros do reino e fiel companheiro de Crusch.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="outros">
+      <div class="char-num">10</div>
+      <img src="../imagens/garfield.gif" alt="Garfiel">
+      <div class="char-info"><div class="char-name">Garfiel</div><div class="char-role">Guardião do Santuário</div></div>
+      <div class="char-hover">
+        <h3>Garfiel Tinsel</h3>
+        <p><strong>Habilidade:</strong> Transformação em fera</p>
+        <p>Guarda o Santuário com raiva — até Subaru ir fundo em seus traumas.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="outros">
+      <div class="char-num">11</div>
+      <img src="../imagens/wal.gif" alt="Wilhelm">
+      <div class="char-info"><div class="char-name">Wilhelm</div><div class="char-role">Veterano de Guerra</div></div>
+      <div class="char-hover">
+        <h3>Wilhelm van Astrea</h3>
+        <p><strong>Título:</strong> Espadachim Divino</p>
+        <p>Sua missão pessoal e história com Theresia são de partir o coração.</p>
+      </div>
+    </div>
+
+    <div class="char-card fade-up" data-grupo="outros">
+      <div class="char-num">T</div>
+      <img src="../imagens/roswaal.gif" alt="Roswaal">
+      <div class="char-info"><div class="char-name">Roswaal</div><div class="char-role">Lorde Mago</div></div>
+      <div class="char-hover">
+        <h3>Roswaal L. Mathers</h3>
+        <p><strong>Magia:</strong> Todos os elementos</p>
+        <p>O mago mais poderoso do reino. Seus objetivos reais são um dos maiores mistérios.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Fan Site não oficial de Re:Zero · Feito com 💜 por um fã · <a href="links.html">Links oficiais</a></p>
+</footer>
+
+<button id="go-top">↑</button>
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  $(function () {
+    // Filtro de personagens com jQuery
+    $('#filtro-tabs button').on('click', function () {
+      var grupo = $(this).data('grupo');
+      $('#filtro-tabs button').removeClass('active').css('background','transparent');
+      $(this).addClass('active').css('background','rgba(124,92,191,0.3)');
+
+      $('.char-card').each(function () {
+        var $c = $(this);
+        if (grupo === 'todos' || $c.data('grupo') === grupo) {
+          $c.fadeIn(250);
+        } else {
+          $c.fadeOut(200);
+        }
+      });
+      toast('Mostrando: ' + $(this).text());
+    });
+
+    // Entrada com delay
+    $('.char-card').each(function (i) {
+      var $c = $(this).css('opacity', 0);
+      setTimeout(function () { $c.animate({ opacity: 1 }, 300); }, i * 55);
+    });
+  });
+</script>
+</body>
+</html>

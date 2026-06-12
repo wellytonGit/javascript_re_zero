@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re:Zero — Quiz</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<video class="video-bg" autoplay loop muted playsinline src="../imagens/vecteezy_digital-screen-background_1626407.mp4"></video>
+<div class="overlay-bg"></div>
+
+<header>
+  <div class="header-glow"></div>
+  <div class="sparks" id="sparks"></div>
+  <div class="header-inner">
+    <div class="header-top">
+      <img class="header-logo" src="../imagens/titulo.jpg" alt="Re:Zero">
+      <div>
+        <div class="header-title">Re:Zero</div>
+        <div class="header-sub">Starting Life in Another World</div>
+      </div>
+    </div>
+    <nav><ul>
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="personagens.html">Personagens</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="galeria.html">Galeria</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="links.html">Links</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="page-narrow">
+
+  <h1 class="section-title fade-up">Quiz</h1>
+  <p class="lead fade-up">15 perguntas pra descobrir se você é um verdadeiro fã ou só assistiu o ep 1.</p>
+
+  <div id="quiz-wrap"></div>
+
+  <div class="quiz-resultado" id="resultado" style="display:none;"></div>
+
+  <div style="text-align:center;margin-top:20px;display:none;" id="wrap-btn">
+    <button class="btn" onclick="iniciar()">🔄 Tentar novamente</button>
+  </div>
+
+</div>
+
+<footer>
+  <p>Fan Site não oficial de Re:Zero · Feito com 💜 por um fã · <a href="links.html">Links oficiais</a></p>
+</footer>
+
+<button id="go-top">↑</button>
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../js/main.js"></script>
+<script>
+var Qs = [
+  {p:"Qual é a habilidade especial de Subaru?", ops:["Magia de gelo","Retorno pela Morte","Transmutação de mana","Leitura de mentes"], c:1},
+  {p:"Qual raça é Rem?", ops:["Elfo","Humana","Oni","Espírito"], c:2},
+  {p:"Quem é o cavaleiro mais forte de Lugnica?", ops:["Julius","Wilhelm","Reinhard","Al"], c:2},
+  {p:"Qual bruxa está ligada ao poder de Subaru?", ops:["Bruxa da Inveja","Bruxa da Gula","Bruxa da Preguiça","Bruxa do Orgulho"], c:0},
+  {p:"Onde Beatrice vive isolada na mansão?", ops:["No porão","Na torre","Na biblioteca (Passage)","No jardim"], c:2},
+  {p:"Qual irmã oni perdeu seu chifre?", ops:["Rem","Ram","As duas","Nenhuma"], c:1},
+  {p:"Como se chama o arco principal da 2ª temporada?", ops:["Arco das Bruxas","Arco do Santuário","Arco da Seleção Real","Arco do Ninho"], c:1},
+  {p:"Qual é o animal de montaria de Subaru?", ops:["Cavalo branco","Patrasche, um ground dragon","Lobo de gelo","Urso mágico"], c:1},
+  {p:"Qual é a Autoridade de Regulus Corneas?", ops:["Preguiça","Gula","Avareza","Orgulho"], c:2},
+  {p:"Quem é o espírito companheiro de Emília?", ops:["Beatrice","Puck","Echidna","Ryuzu"], c:1},
+  {p:"Qual o nome da mansão onde Subaru trabalha?", ops:["Mansão Karsten","Mansão Mathers","Mansão Astrea","Mansão Lugnica"], c:1},
+  {p:"Quem é Ryuzu Meyer dentro do Santuário?", ops:["Fundadora","Cópia criada por Echidna","Guardiã original","Bruxa menor"], c:1},
+  {p:"Qual frase de Subaru se tornou icônica?", ops:["Eu vou te salvar de tudo","Sou movido pelo amor","Eu te amo, Emília-tan!","Minha autoridade supera a sua"], c:1},
+  {p:"Quem treinou Wilhelm van Astrea?", ops:["Reinhard","Theresia van Astrea","Julius","Roswaal"], c:1},
+  {p:"Qual estúdio produziu o anime?", ops:["Kyoto Animation","Ufotable","White Fox","Madhouse"], c:2}
+];
+
+var respostas = [];
+
+function iniciar() {
+  respostas = [];
+  $('#resultado').hide();
+  $('#wrap-btn').hide();
+  var html = '';
+  Qs.forEach(function (q, i) {
+    html += '<div class="q-box" id="q' + i + '" style="opacity:0">';
+    html += '<div class="q-num">Pergunta ' + (i + 1) + ' de ' + Qs.length + '</div>';
+    html += '<div class="q-pergunta">' + q.p + '</div>';
+    q.ops.forEach(function (op, j) {
+      html += '<button class="q-op" onclick="resp(' + i + ',' + j + ')">' + op + '</button>';
+    });
+    html += '<div class="q-feedback" id="fb' + i + '"></div>';
+    html += '</div>';
+  });
+  $('#quiz-wrap').html(html);
+  Qs.forEach(function (_, i) {
+    setTimeout(function () {
+      $('#q' + i).animate({ opacity: 1 }, 350);
+    }, i * 80);
+  });
+}
+
+function resp(qi, oi) {
+  var $ops = $('#q' + qi + ' .q-op');
+  if ($ops.first().prop('disabled')) return;
+  $ops.prop('disabled', true);
+  var certo = oi === Qs[qi].c;
+  $ops.eq(oi).addClass(certo ? 'ok' : 'err');
+  if (!certo) $ops.eq(Qs[qi].c).addClass('ok');
+  $('#fb' + qi).text(certo ? '✅ Correto!' : '❌ Errado. Certa: ' + Qs[qi].ops[Qs[qi].c])
+    .css('color', certo ? '#81c784' : '#e57373');
+  respostas.push(certo);
+  toast(certo ? '✅ Acertou!' : '❌ Errou!');
+
+  if (respostas.length === Qs.length) {
+    var ac = respostas.filter(Boolean).length;
+    var msg = ac === Qs.length ? '🏆 Perfeito! Fã completo.' :
+              ac >= 12 ? '⭐ Excelente!' :
+              ac >= 9  ? '👍 Bom! Quase lá.' :
+              ac >= 6  ? '📚 Razoável. Revise um pouco.' :
+              '😅 Hora de reassistir do começo!';
+    setTimeout(function () {
+      $('#resultado').html('Você acertou <strong>' + ac + '/' + Qs.length + '</strong><br><span style="font-size:.85rem;color:var(--muted)">' + msg + '</span>').show();
+      $('#wrap-btn').show();
+      $('html, body').animate({ scrollTop: $('#resultado').offset().top - 40 }, 500);
+    }, 500);
+  }
+}
+
+$(function () { iniciar(); });
+</script>
+</body>
+</html>
